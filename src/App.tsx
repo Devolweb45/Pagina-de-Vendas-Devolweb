@@ -173,7 +173,9 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-brand">
+    <section className="section-padding bg-gradient-brand relative">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/10 blur-[130px] rounded-full -z-10" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-red/5 blur-[100px] rounded-full -z-10" />
       <div className="max-w-7xl mx-auto">
         <SectionHeading 
           badge="Prova Social"
@@ -231,7 +233,8 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-subtle">
+    <section className="section-padding bg-gradient-subtle relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/10 blur-[150px] rounded-full -z-10" />
       <div className="max-w-3xl mx-auto">
         <SectionHeading 
           badge="Dúvidas Comuns"
