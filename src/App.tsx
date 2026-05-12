@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
+  ArrowUp,
   ChevronLeft,
   ChevronRight,
   Check, 
@@ -154,11 +155,11 @@ const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: s
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className={`mb-12 ${centered ? 'text-center' : ''}`}
+    className={`mb-12 text-center ${centered ? '' : 'md:text-left'}`}
   >
     <Badge>{badge}</Badge>
     <h2 className="headline-xl mb-4">{title}</h2>
-    <p className={`text-brand-white/50 text-sm max-w-xl ${centered ? 'mx-auto' : ''}`}>{subtitle}</p>
+    <p className={`text-brand-white/50 text-sm max-w-xl mx-auto ${centered ? '' : 'md:mx-0'}`}>{subtitle}</p>
   </motion.div>
 );
 
@@ -550,15 +551,15 @@ const App = () => {
           className="absolute top-60 right-[15%] w-32 h-32 bg-brand-orange/20 rounded-full blur-3xl -z-10"
         />
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 pt-12 md:pt-20">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 pt-12 md:pt-20 text-center lg:text-left">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col items-center lg:items-start">
             <div className="mb-4 flex justify-center md:justify-start">
-              <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-24 md:h-32 w-auto ml-0 md:-ml-12" />
+              <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-32 md:h-32 w-auto ml-0 md:-ml-12" />
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 relative z-20">
               Ter um site bonito não resolve o seu <span className="text-gradient-orange italic px-1">problema de vendas</span>.
             </h1>
-            <p className="text-lg text-brand-white/60 mb-8 max-w-lg">
+            <p className="text-lg text-brand-white/60 mb-8 max-w-lg mx-auto lg:mx-0">
               Em 2026, seu site deve ser o seu melhor vendedor. Nós transformamos códigos em funis de alta conversão para empresas que cansaram de ser ignoradas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start">
@@ -1149,6 +1150,14 @@ const App = () => {
       <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl z-50 hover:scale-110 transition-transform">
         <WhatsappIcon className="text-white w-7 h-7" />
       </a>
+
+      {/* Voltar para o início */}
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-6 left-6 w-14 h-14 bg-white/5 border border-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl z-50 hover:bg-white/10 hover:border-brand-orange transition-all cursor-pointer group"
+      >
+        <ArrowUp className="text-white w-6 h-6 group-hover:-translate-y-1 transition-transform" />
+      </button>
     </main>
   );
 };
