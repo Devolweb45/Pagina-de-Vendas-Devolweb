@@ -1304,13 +1304,13 @@ const App = () => {
 
       {/* --- FOOTER --- */}
       <footer className="py-12 border-t border-dark-border px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-           <div className="flex items-center">
-            <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-20 w-auto opacity-100" />
-          </div>
-          
-          <div className="text-[10px] font-bold uppercase tracking-widest text-white/20 text-center md:text-left">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-8">
+          <div className="text-[10px] font-bold uppercase tracking-widest text-white/20">
             © 2026 Devolweb. Todos os direitos reservados. Design p/ Conversão.
+          </div>
+
+          <div className="flex items-center justify-center">
+            <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-28 md:h-32 w-auto opacity-100" />
           </div>
           
           <div className="flex gap-6">
