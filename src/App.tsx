@@ -34,7 +34,7 @@ const WhatsappIcon = ({ className }: { className?: string }) => (
     className={className}
     stroke="none"
   >
-    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.181-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.43-.127.583-.127.153 0 .33-.145.33-.145l.135-.135c.162-.162.27-.27.27-.27l.081-.081c.081-.081.162-.081.243 0l.378.378.378.378c.081.081.162.162.243.243.081.081.081.162 0 .243a3.526 3.526 0 01-.243.243c-.081.081-.162.162-.054.27.108.108.481.794.694 1.063.213.269.458.497.712.684.254.187.671.413 1.07.413s.484-.251.664-.431c.18-.18.774-.91.972-1.225.198-.315.396-.28.664-.171l1.08.54c.269.135.45.202.518.315.068.113.068.653-.076 1.058zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.303C8.423 21.536 10.15 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.897-5.335 11.9-11.894a11.83 11.83 0 00-3.481-8.413z"/>
   </svg>
 );
 
@@ -42,6 +42,52 @@ const WHATSAPP_LINK = "https://wa.me/message/FXT5AF4CNKVPE1";
 
 // --- Pricing Data ---
 const PLANS = {
+  PERFORMANCE: [
+    {
+      name: "Landing Page Simples",
+      price: "800",
+      target: "Apresentação & Leads",
+      features: [
+        "Seção principal/banner",
+        "Apresentação do serviço/produto",
+        "Benefícios e diferenciais",
+        "Chamada para ação (CTA)",
+        "Formulário ou WhatsApp",
+        "FAQ (Dúvidas Comuns)",
+        "Rodapé profissional",
+        "Versão adaptada para celular"
+      ]
+    },
+    {
+      name: "LP Estratégica + Copy",
+      price: "1.200",
+      recommend: true,
+      target: "Venda Persuasiva",
+      features: [
+        "Tudo da Landing Page Simples",
+        "Auxílio na Estrutura Estratégica",
+        "Comunicação de Conteúdo Profissional",
+        "Escrita Persuasiva (Copywriting)",
+        "Design Focado em Conversão",
+        "Análise de Posicionamento"
+      ]
+    },
+    {
+      name: "Página de Vendas Completa",
+      price: "1.500",
+      target: "Infoprodutos & Ofertas",
+      features: [
+        "Headline estratégica",
+        "Apresentação da oferta",
+        "Seção de Dor e Solução",
+        "Provas sociais/depoimentos",
+        "Quebra de objeções",
+        "Garantia & FAQ",
+        "Oferta + CTA impactante",
+        "Estrutura Mobile-First"
+      ]
+    }
+  ],
   INSTITUCIONAL: [
     {
       name: "Plano Start",
@@ -88,9 +134,9 @@ const PLANS = {
   ],
   OUTROS: [
     { title: "Landing Page", price: "1.200", detail: "Focada 100% em vender um único produto/serviço." },
-    { title: "Loja Virtual Start", price: "4.500", detail: "Até 20 produtos, pagamento e frete integrados." },
-    { title: "Loja Profissional", price: "7.000", detail: "Design premium, automações e performance." },
-    { title: "Sistemas Dinâmicos", price: "7.000+", detail: "Imobiliárias, Agendamentos, Marketplaces." }
+    { title: "Loja Virtual (E-commerce)", price: "3.500+", detail: "Venda online com estoque, pagamento e frete integrados." },
+    { title: "Sistemas Dinâmicos", price: "7.000+", detail: "Imobiliárias, Agendamentos, Marketplaces." },
+    { title: "Manutenção Mensal", price: "250/mês", detail: "Hospedagem, atualizações e suporte técnico." }
   ]
 };
 
@@ -172,9 +218,13 @@ const TestimonialsSection = () => {
 const FAQSection = () => {
   const faqs = [
     { q: "Qual o prazo médio de entrega?", a: "Para Landing Pages, entregamos em até 7-10 dias. Sites Institucionais levam de 15 a 30 dias, dependendo da complexidade." },
-    { q: "Como funciona o pagamento?", a: "Trabalhamos com 40% de entrada, 30% no desenvolvimento e 30% na entrega, ou parcelamento no cartão de crédito." },
-    { q: "O site já vem com SEO?", a: "Sim! Todos os nossos planos incluem otimização básica para indexação no Google. Planos Premium possuem estratégia avançada." },
-    { q: "Vocês fazem a hospedagem?", a: "Nós configuramos tudo para você. Podemos indicar parceiros de alta performance ou configurar no seu servidor de escolha." }
+    { q: "Como funciona o pagamento?", a: "Trabalhamos com 40% de entrada, 30% no desenvolvimento e 30% na entrega, ou parcelamento no cartão de crédito via link." },
+    { q: "O site já vem com SEO?", a: "Sim! Todos os nossos planos incluem otimização básica para indexação no Google. Planos Premium possuem estratégia avançada de palavras-chave." },
+    { q: "O site será 100% meu ou terei que pagar mensalidade?", a: "O projeto é totalmente seu. Após a entrega, você terá total propriedade e acesso a todas as contas. Não cobramos aluguel de site." },
+    { q: "Vou conseguir editar os conteúdos sozinho?", a: "Sim! Desenvolvemos o site com um painel administrativo intuitivo para que você possa alterar textos, imagens e blog sem depender de nós." },
+    { q: "O site é rápido e funciona no celular?", a: "Com certeza. Utilizamos as tecnologias mais leves do mercado e foco total em Mobile-First para garantir que seu site abra em menos de 2 segundos." },
+    { q: "Vocês fazem a hospedagem e o domínio?", a: "Nós configuramos tudo para você. Podemos indicar parceiros de alta performance ou configurar no seu servidor de escolha (Hostinger, Cloudways, etc)." },
+    { q: "Teremos suporte após a entrega?", a: "Sim! Oferecemos 30 dias de garantia e suporte total após o ar, além de planos opcionais de manutenção mensal para manter tudo seguro e atualizado." }
   ];
 
   return (
@@ -414,6 +464,47 @@ const AboutSection = () => (
 );
 
 const App = () => {
+  const [isSent, setIsSent] = useState(false);
+  const [formState, setFormState] = useState({
+    nome: '',
+    email: '',
+    servico: 'Site Institucional Start',
+    desafio: ''
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSent(true);
+    
+    // Formata a mensagem detalhada
+    const message = `Olá Marcelo! Me chamo *${formState.nome}*.\n\n` +
+      `*E-mail:* ${formState.email}\n` +
+      `*Serviço:* ${formState.servico}\n` +
+      `*Desafio:* ${formState.desafio}\n\n` +
+      `Gostaria de agendar a consultoria grátis.`;
+    
+    // Como o seu link curto (wa.me/message/...) não aceita preenchimento de texto via URL,
+    // nós copiamos os dados para a área de transferência do cliente.
+    navigator.clipboard.writeText(message).then(() => {
+      // Delay para o usuário ler a mensagem de sucesso no botão
+      setTimeout(() => {
+        window.open(WHATSAPP_LINK, '_blank');
+        setIsSent(false);
+        // Limpa o formulário
+        setFormState({
+          nome: '',
+          email: '',
+          servico: 'Site Institucional Start',
+          desafio: ''
+        });
+      }, 2000);
+    }).catch(() => {
+      // Caso o navegador bloqueie o clipboard, abre o link direto
+      window.open(WHATSAPP_LINK, '_blank');
+      setIsSent(false);
+    });
+  };
+
   return (
     <main className="min-h-screen bg-dark-bg selection:bg-brand-orange selection:text-white pb-20">
       {/* --- HERO: O PROBLEMA --- */}
@@ -659,38 +750,77 @@ const App = () => {
             subtitle="Escolha o plano que melhor se adapta ao momento atual da sua empresa."
             centered
           />
+
+          {/* Performance & Landing Pages */}
+          <div className="mb-12">
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-brand-orange mb-8 opacity-50 px-2 border-l-2 border-brand-orange/30">Alta Conversão & Performance</h3>
+            <div className="grid lg:grid-cols-3 gap-8 mb-16">
+              {PLANS.PERFORMANCE.map((plan, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange/40 ring-1 ring-brand-orange/20' : ''}`}
+                >
+                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl shadow-brand-orange/20">Mais Procurado</div>}
+                  <div className="mb-8">
+                    <h3 className="text-lg font-black uppercase tracking-tight mb-1">{plan.name}</h3>
+                    <p className="text-[10px] text-white/30 uppercase font-bold mb-4">{plan.target}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-xs text-white/30">R$</span>
+                      <span className="text-4xl font-extrabold tracking-tighter">{plan.price}</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-4 mb-10 flex-grow">
+                    {plan.features.map((f, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-brand-white/60">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Selecionar Plano</a>
+                </motion.div>
+              ))}
+            </div>
+          </div>
           
           {/* Planos Institucionais */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-20" id="precos">
-            {PLANS.INSTITUCIONAL.map((plan, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange/40 ring-1 ring-brand-orange/20' : ''}`}
-              >
-                {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl shadow-brand-orange/20">Mais Procurado</div>}
-                <div className="mb-8">
-                  <h3 className="text-lg font-black uppercase tracking-tight mb-1">{plan.name}</h3>
-                  <p className="text-[10px] text-white/30 uppercase font-bold mb-4">{plan.target}</p>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-xs text-white/30">R$</span>
-                    <span className="text-4xl font-extrabold tracking-tighter">{plan.price}</span>
+          <div className="mb-12" id="precos">
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-brand-orange mb-8 opacity-50 px-2 border-l-2 border-brand-orange/30">Presença Digital de Elite</h3>
+            <div className="grid lg:grid-cols-3 gap-8 mb-20">
+              {PLANS.INSTITUCIONAL.map((plan, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange/40 ring-1 ring-brand-orange/20' : ''}`}
+                >
+                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl shadow-brand-orange/20">Recomendado</div>}
+                  <div className="mb-8">
+                    <h3 className="text-lg font-black uppercase tracking-tight mb-1">{plan.name}</h3>
+                    <p className="text-[10px] text-white/30 uppercase font-bold mb-4">{plan.target}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-xs text-white/30">R$</span>
+                      <span className="text-4xl font-extrabold tracking-tighter">{plan.price}</span>
+                    </div>
                   </div>
-                </div>
-                <ul className="space-y-4 mb-10 flex-grow">
-                  {plan.features.map((f, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-brand-white/60">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Iniciar Consultoria</a>
-              </motion.div>
-            ))}
+                  <ul className="space-y-4 mb-10 flex-grow">
+                    {plan.features.map((f, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-brand-white/60">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Iniciar Consultoria</a>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Outros Serviços */}
@@ -719,7 +849,7 @@ const App = () => {
           <div>
             <SectionHeading 
               badge="Alta Complexidade"
-              title="JetEngine: Quando você precisa de mais que um site."
+              title="Quando você precisa de mais que um site."
               subtitle="Não construímos apenas telas, construímos máquinas de vendas automatizadas."
             />
           <motion.div 
@@ -929,35 +1059,65 @@ const App = () => {
               <div className="absolute -top-4 -right-4 w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center glow-orange">
                 <ArrowRight className="w-6 h-6 text-white" />
               </div>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" onSubmit={handleFormSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-[10px] font-bold uppercase text-white/30 mb-2 block tracking-widest">Nome Completo</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" placeholder="Seu nome" />
+                    <input 
+                      type="text" 
+                      required
+                      value={formState.nome}
+                      onChange={(e) => setFormState({ ...formState, nome: e.target.value })}
+                      className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" 
+                      placeholder="Seu nome" 
+                    />
                   </div>
                   <div>
                     <label className="text-[10px] font-bold uppercase text-white/30 mb-2 block tracking-widest">E-mail Corporativo</label>
-                    <input type="email" className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" placeholder="seu@email.com" />
+                    <input 
+                      type="email" 
+                      required
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" 
+                      placeholder="seu@email.com" 
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="text-[10px] font-bold uppercase text-white/30 mb-2 block tracking-widest">Serviço Desejado</label>
-                  <select className="w-full bg-[#1a1a1a] border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm appearance-none cursor-pointer">
+                  <select 
+                    value={formState.servico}
+                    onChange={(e) => setFormState({ ...formState, servico: e.target.value })}
+                    className="w-full bg-[#1a1a1a] border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm appearance-none cursor-pointer"
+                  >
                     <option className="bg-[#1a1a1a]">Site Institucional Start</option>
                     <option className="bg-[#1a1a1a]">Site Institucional Profissional</option>
                     <option className="bg-[#1a1a1a]">Site Institucional Premium</option>
                     <option className="bg-[#1a1a1a]">Landing Page de Vendas</option>
                     <option className="bg-[#1a1a1a]">Ecommerce / Loja Virtual</option>
-                    <option className="bg-[#1a1a1a]">Sistema Personalizado (JetEngine)</option>
+                    <option className="bg-[#1a1a1a]">Sistema Personalizado</option>
                   </select>
                 </div>
                 <div>
                   <label className="text-[10px] font-bold uppercase text-white/30 mb-2 block tracking-widest">Qual seu maior desafio hoje?</label>
-                  <textarea rows={3} className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" placeholder="Fale um pouco sobre o projeto..." />
+                  <textarea 
+                    rows={3} 
+                    required
+                    value={formState.desafio}
+                    onChange={(e) => setFormState({ ...formState, desafio: e.target.value })}
+                    className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange text-sm" 
+                    placeholder="Fale um pouco sobre o projeto..." 
+                  />
                 </div>
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary py-5 text-sm uppercase tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center">
-                  Agendar Consultoria Grátis
-                </a>
+                <button type="submit" disabled={isSent} className="button-primary w-full py-5 text-sm uppercase tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center disabled:opacity-80 disabled:cursor-not-allowed">
+                  {isSent ? (
+                    <span className="flex flex-col items-center justify-center gap-1">
+                       <span className="flex items-center gap-2 font-black"><Check className="w-4 h-4" /> Dados Copiado!</span>
+                       <span className="text-[10px] opacity-70 normal-case font-medium">Basta colar no WhatsApp</span>
+                    </span>
+                  ) : "Agendar Consultoria Grátis"}
+                </button>
                 <div className="flex items-center justify-center gap-2 text-[9px] uppercase font-bold text-white/20 tracking-tighter">
                   <Lock className="w-3 h-3" /> Seus dados estão 100% seguros conosco.
                 </div>
