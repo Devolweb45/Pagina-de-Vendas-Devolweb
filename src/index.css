@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-red: #ef4444;
+  --color-brand-orange: #f97316;
+  --color-brand-white: #ffffff;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-card: #111111;
+  --color-dark-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-brand-white antialiased font-sans;
+  }
+}
+
+.glow-orange {
+  box-shadow: 0 0 50px -15px rgba(249, 115, 22, 0.2);
+}
+
+.text-gradient-orange {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-red;
+}
+
+.glass-panel {
+  @apply bg-[#161616] border border-dark-border backdrop-blur-xl;
+}
+
+.section-padding {
+  @apply py-16 md:py-24 px-6 relative overflow-hidden;
+}
+
+.bg-gradient-dark {
+  background: radial-gradient(circle at center, #151515 0%, #0a0a0a 100%);
+}
+
+.bg-gradient-brand {
+  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.08) 0%, rgba(10, 10, 10, 1) 70%);
+}
+
+.bg-gradient-footer {
+  background: linear-gradient(to bottom, #0a0a0a, #111111);
+}
+
+/* Reduzindo o tamanho das headlines conforme pedido */
+.headline-xl {
+  @apply text-3xl md:text-5xl font-extrabold tracking-tight leading-normal py-4 relative z-20;
+}
+
+.button-primary {
+  @apply bg-gradient-to-r from-brand-orange to-brand-red text-white font-bold py-4 px-8 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 w-full max-w-[280px] relative overflow-hidden;
+}
+
+.button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.7s;
+}
+
+.button-primary:hover::before {
+  left: 100%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes meteor {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-1000px, 1000px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 3px rgba(249, 115, 22, 1), 0 0 30px 6px rgba(249, 115, 22, 0.5);
+  animation: meteor 3s linear infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.meteor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, #f97316, transparent);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
