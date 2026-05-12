@@ -157,11 +157,11 @@ const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: s
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className={`mb-20 text-center ${centered ? '' : 'md:text-left'}`}
+    className={`mb-10 md:mb-20 text-center ${centered ? '' : 'md:text-left'}`}
   >
     <Badge>{badge}</Badge>
     <h2 className="headline-xl mb-4">{title}</h2>
-    <p className={`text-brand-white/50 text-sm max-w-xl mx-auto ${centered ? '' : 'md:mx-0'}`}>{subtitle}</p>
+    <p className={`text-brand-white/60 text-sm max-w-xl mx-auto ${centered ? '' : 'md:mx-0'}`}>{subtitle}</p>
   </motion.div>
 );
 
@@ -208,9 +208,9 @@ const TestimonialsSection = () => {
           ))}
         </div>
         <div className="mt-12 flex justify-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base border border-white/10 hover:bg-white/5 transition-all whitespace-nowrap">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base border border-white/10 hover:bg-white/5 transition-all">
             Quero esses mesmos resultados
-            <Star className="w-4 h-4 ml-2 text-brand-orange fill-current" />
+            <Star className="w-4 h-4 text-brand-orange fill-current" />
           </a>
         </div>
       </div>
@@ -231,7 +231,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-gradient-subtle">
       <div className="max-w-3xl mx-auto">
         <SectionHeading 
           badge="Dúvidas Comuns"
@@ -273,54 +273,95 @@ const FAQSection = () => {
 
 const GuaranteeSection = () => (
   <section className="section-padding bg-gradient-brand border-y border-white/5 relative overflow-hidden">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none" />
+    {/* Animated background elements */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-orange/5 blur-[150px] rounded-full pointer-events-none" />
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+    
     <div className="max-w-7xl mx-auto relative z-10">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <SectionHeading 
-            badge="Risco Zero"
-            title="Sua satisfação ou seu projeto de volta."
-            subtitle="Garantia blindada. Se não entregarmos a excelência técnica prometida, devolvemos seu investimento. Simples assim."
-          />
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0 border border-brand-orange/20 md:mx-0">
-                <Check className="w-5 h-5 text-brand-orange" />
-              </div>
-              <div className="text-center md:text-left">
-                <h4 className="text-sm font-bold uppercase tracking-tight mb-1">Garantia de 30 Dias</h4>
-                <p className="text-xs text-brand-white/40 leading-relaxed">Se em até 30 dias após a entrega você não estiver satisfeito com a qualidade técnica do projeto, faremos os ajustes necessários sem custo adicional.</p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0 border border-brand-orange/20 md:mx-0">
-                <Shield className="w-5 h-5 text-brand-orange" />
-              </div>
-              <div className="text-center md:text-left">
-                <h4 className="text-sm font-bold uppercase tracking-tight mb-1">Suporte Pós-Entrega</h4>
-                <p className="text-xs text-brand-white/40 leading-relaxed">Você não fica sozinho. Oferecemos suporte prioritário para garantir que tudo funcione perfeitamente enquanto você foca em vender.</p>
-              </div>
+          <div className="max-w-xl">
+            <SectionHeading 
+              badge="Compromisso de Elite"
+              title="Sua satisfação real ou seu investimento de volta."
+              subtitle="Não vendemos apenas sites, vendemos resultados. Nossa garantia blindada assegura que você receba exatamente a excelência técnica que contratou."
+            />
+            
+            <div className="mt-12 space-y-8">
+              {[
+                {
+                  icon: <Check className="w-6 h-6 text-brand-orange" />,
+                  title: "Garantia Técnica Total",
+                  desc: "Se em até 30 dias após o lançamento você identificar falhas técnicas ou desvios do que foi acordado, corrigimos tudo com prioridade zero.",
+                },
+                {
+                  icon: <Shield className="w-6 h-6 text-brand-orange" />,
+                  title: "Suporte Vitalício para Bugs",
+                  desc: "Diferente de agências que somem, garantimos que seu site permaneça funcional. Erros de código originais são corrigidos sem custo, para sempre.",
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-6 items-start group">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center shrink-0 border border-brand-orange/20 transition-all group-hover:scale-110 group-hover:bg-brand-orange/20">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-base font-black uppercase tracking-wider mb-2 text-white/90">{item.title}</h4>
+                    <p className="text-sm text-brand-white/50 leading-relaxed max-w-md">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.85, rotate: -5 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center"
+          transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+          className="flex justify-center lg:justify-end"
         >
-          <div className="relative">
-            <div className="absolute inset-0 bg-brand-orange/20 blur-[100px] rounded-full animate-pulse" />
-            <div className="w-64 h-64 md:w-80 md:h-80 glass-panel rounded-full border-brand-orange/30 flex flex-col items-center justify-center text-center p-8 relative z-10 border-4">
-              <Shield className="w-20 h-20 text-brand-orange mb-4" />
-              <div className="text-4xl font-black text-brand-orange mb-1 italic">100%</div>
-              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 leading-tight">Garantia de<br/>Satisfação</div>
+          <div className="relative group">
+            {/* Glossy Seal Effect */}
+            <div className="absolute inset-0 bg-brand-orange/20 blur-[120px] rounded-full animate-pulse group-hover:bg-brand-orange/30 transition-all" />
+            
+            <div className="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+              {/* Outer Ring */}
+              <div className="absolute inset-0 rounded-full border-[12px] border-white/5 border-t-brand-orange/20 border-r-brand-orange/10 animate-[spin_10s_linear_infinite]" />
+              
+              {/* Main Seal Body */}
+              <div className="w-full h-full glass-panel rounded-full border-brand-orange/30 flex flex-col items-center justify-center text-center p-12 relative z-10 border-[6px] shadow-[0_0_50px_rgba(249,115,22,0.15)] overflow-hidden">
+                {/* Internal Shine */}
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                
+                <Shield className="w-24 h-24 text-brand-orange mb-6 drop-shadow-[0_0_20px_rgba(249,115,22,0.4)]" />
+                <div className="relative">
+                  <span className="text-6xl md:text-7xl font-black text-white italic tracking-tighter block leading-none">100%</span>
+                  <div className="h-1 w-full bg-gradient-to-r from-transparent via-brand-orange to-transparent my-4" />
+                </div>
+                <div className="text-[12px] font-black uppercase tracking-[0.4em] text-brand-orange bg-brand-orange/10 px-4 py-1 rounded-full">
+                  Garantia de Excelência
+                </div>
+                <div className="mt-4 text-[10px] text-white/30 font-bold uppercase tracking-widest leading-tight">
+                  Técnica & Performance
+                </div>
+              </div>
+
+              {/* Orbital Badge */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 pointer-events-none"
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-orange text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-tighter shadow-xl">
+                  Risco Zero
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -340,8 +381,8 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-dark-bg/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="section-padding bg-gradient-dark">
+      <div className="max-w-7xl mx-auto">
         <SectionHeading 
           badge="Metodologia"
           title="Como funciona o nosso processo"
@@ -444,8 +485,8 @@ const PortfolioSection = () => {
   }, [isPaused]);
 
   return (
-    <section id="portfolio" className="py-24 md:py-32 overflow-hidden bg-gradient-dark border-b border-dark-border">
-      <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-center">
+    <section id="portfolio" className="section-padding overflow-hidden bg-gradient-dark border-b border-dark-border">
+      <div className="max-w-7xl mx-auto mb-8 md:mb-12 text-center">
         <SectionHeading 
           badge="Portfólio de Elite"
           title="Projetos que entregam resultados"
@@ -513,8 +554,8 @@ const PortfolioSection = () => {
 };
 
 const AboutSection = () => (
-  <section id="sobre" className="py-24 md:py-32 bg-gradient-dark overflow-hidden relative px-6">
-    <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-brand-orange/5 blur-[100px] rounded-full -z-10" />
+  <section id="sobre" className="section-padding bg-gradient-dark relative">
+    <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-brand-orange/10 blur-[130px] rounded-full -z-10" />
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
       <motion.div 
         initial={{ opacity: 0, x: -30 }}
@@ -552,14 +593,14 @@ const AboutSection = () => (
           <p>
             Não sou apenas um desenvolvedor. Sou um estrategista que entende de psicologia de consumo, design de conversão e tecnologia de ponta. Cada projeto da Devolweb recebe meu toque pessoal na arquitetura de vendas.
           </p>
-          <div className="flex gap-8 pt-6">
+        <div className="flex gap-4 sm:gap-8 pt-6">
             <div className="flex flex-col">
-              <span className="text-brand-orange font-black text-2xl tracking-tighter">500k+</span>
-              <span className="text-[10px] uppercase font-black text-white/20 tracking-wider">Investimento Gerenciado</span>
+              <span className="text-brand-orange font-black text-xl sm:text-2xl tracking-tighter">500k+</span>
+              <span className="text-[9px] sm:text-[10px] uppercase font-black text-white/20 tracking-wider">Investimento Gerenciado</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-brand-orange font-black text-2xl tracking-tighter">200+</span>
-              <span className="text-[10px] uppercase font-black text-white/20 tracking-wider">Projetos Entregues</span>
+              <span className="text-brand-orange font-black text-xl sm:text-2xl tracking-tighter">200+</span>
+              <span className="text-[9px] sm:text-[10px] uppercase font-black text-white/20 tracking-wider">Projetos Entregues</span>
             </div>
           </div>
           <div className="mt-10 flex justify-center lg:justify-start">
@@ -617,10 +658,10 @@ const App = () => {
   };
 
   return (
-    <main className="min-h-screen bg-dark-bg selection:bg-brand-orange selection:text-white pb-20">
+    <main className="min-h-screen bg-dark-bg selection:bg-brand-orange selection:text-white pb-20 overflow-x-hidden">
       {/* --- HERO: O PROBLEMA --- */}
-      <section className="pb-32 px-6 overflow-hidden relative bg-gradient-brand">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/5 blur-[120px] -z-10" />
+      <section className="pt-8 pb-16 md:pt-12 md:pb-32 px-4 sm:px-6 relative overflow-hidden bg-gradient-brand">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-orange/10 blur-[130px] -z-10" />
         
         {/* Meteorites */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -661,12 +702,12 @@ const App = () => {
           className="absolute top-60 right-[15%] w-32 h-32 bg-brand-orange/20 rounded-full blur-3xl -z-10"
         />
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 pt-12 md:pt-20 text-center lg:text-left">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 pt-4 lg:pt-8 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col items-center lg:items-start">
             <div className="mb-4 flex justify-center md:justify-start">
               <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-32 md:h-32 w-auto ml-0 md:-ml-12" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 relative z-20">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 relative z-20 break-words">
               Desenvolvimento de páginas modernas e estratégicas para <span className="text-gradient-orange italic px-2 inline-block">gerar resultados</span>.
             </h1>
             <p className="text-lg text-brand-white/60 mb-8 max-w-lg mx-auto lg:mx-0">
@@ -677,7 +718,7 @@ const App = () => {
                 Quero um site que venda
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-6 py-3 border border-dark-border rounded-xl hover:bg-white/5 transition-colors group w-fit whitespace-nowrap">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-6 py-3 border border-dark-border rounded-xl hover:bg-white/5 transition-colors group w-fit">
                 <Search className="text-brand-orange w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-medium text-brand-white/40">Analise meu posicionamento</span>
               </a>
@@ -717,7 +758,12 @@ const App = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1.05 }} transition={{ delay: 0.2, duration: 0.8 }} className="relative bg-[#1a1a1a] p-1.5 rounded-[2.5rem] border border-brand-orange/20 glow-orange lg:ml-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }} 
+            animate={{ opacity: 1, scale: [0.95, 1, 1] }} 
+            transition={{ delay: 0.2, duration: 0.8 }} 
+            className="relative bg-[#1a1a1a] p-1.5 rounded-[2.5rem] border border-brand-orange/20 glow-orange lg:ml-10 md:scale-105"
+          >
              <div className="bg-dark-bg rounded-[2.2rem] overflow-hidden shadow-2xl">
                 <div className="h-10 bg-[#1a1a1a] px-5 flex items-center gap-2 border-b border-white/5">
                   <div className="flex gap-2">
@@ -752,19 +798,19 @@ const App = () => {
                 </div>
              </div>
 
-             {/* Floating UI Elements - Enhanced */}
+             {/* Floating UI Elements - Enhanced & Responsive */}
              <motion.div 
                 animate={{ y: [0, -15, 0], x: [0, 5, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-8 -right-8 glass-panel p-5 rounded-3xl border-brand-orange/30 z-30 shadow-2xl shadow-brand-orange/20"
+                className="absolute -bottom-4 md:-bottom-8 -right-2 md:-right-8 glass-panel p-3 md:p-5 rounded-2xl md:rounded-3xl border-brand-orange/30 z-30 shadow-2xl shadow-brand-orange/20"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-brand-orange/20 rounded-2xl flex items-center justify-center">
-                    <MousePointer2 className="w-6 h-6 text-brand-orange" />
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-orange/20 rounded-xl md:rounded-2xl flex items-center justify-center">
+                    <MousePointer2 className="w-5 h-5 md:w-6 md:h-6 text-brand-orange" />
                   </div>
                   <div>
-                    <div className="text-sm font-black text-white">+240%</div>
-                    <div className="text-[10px] text-white/40 uppercase font-black tracking-widest">Taxa de Conversão</div>
+                    <div className="text-xs md:text-sm font-black text-white">+240%</div>
+                    <div className="text-[8px] md:text-[10px] text-white/40 uppercase font-black tracking-widest">Taxa de Conversão</div>
                   </div>
                 </div>
              </motion.div>
@@ -772,11 +818,11 @@ const App = () => {
              <motion.div 
                 animate={{ y: [0, 15, 0], x: [0, -5, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-12 -left-10 glass-panel p-4 px-6 rounded-2xl border-brand-red/30 z-30 shadow-2xl"
+                className="absolute -top-6 md:-top-12 -left-2 md:-left-10 glass-panel p-3 md:p-4 px-4 md:px-6 rounded-xl md:rounded-2xl border-brand-red/30 z-30 shadow-2xl"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-brand-red rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
-                  <div className="text-[10px] font-black text-white uppercase tracking-[0.2em]">98/100 SEO SCORE</div>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-brand-red rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
+                  <div className="text-[8px] md:text-[10px] font-black text-white uppercase tracking-[0.2em]">98/100 SEO SCORE</div>
                 </div>
              </motion.div>
 
@@ -858,7 +904,7 @@ const App = () => {
       <PortfolioSection />
 
       {/* --- SOLUÇÕES & PREÇOS --- */}
-      <section id="solucoes" className="section-padding px-6 bg-gradient-brand">
+      <section id="solucoes" className="section-padding bg-gradient-brand">
         <div className="max-w-7xl mx-auto">
           <SectionHeading 
             badge="Nossos Planos"
@@ -870,7 +916,7 @@ const App = () => {
           {/* Performance & Landing Pages */}
           <div className="mb-12">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-brand-orange mb-8 opacity-50 px-2 border-l-2 border-brand-orange/30">Alta Conversão & Performance</h3>
-            <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {PLANS.PERFORMANCE.map((plan, i) => (
                 <motion.div 
                   key={i} 
@@ -906,7 +952,7 @@ const App = () => {
           {/* Planos Institucionais */}
           <div className="mb-12" id="precos">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-brand-orange mb-8 opacity-50 px-2 border-l-2 border-brand-orange/30">Presença Digital de Elite</h3>
-            <div className="grid lg:grid-cols-3 gap-8 mb-20">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
               {PLANS.INSTITUCIONAL.map((plan, i) => (
                 <motion.div 
                   key={i} 
@@ -960,7 +1006,8 @@ const App = () => {
       </section>
 
       {/* --- SISTEMAS CUSTOM (JETENGINE) --- */}
-      <section className="section-padding bg-gradient-dark">
+      <section className="section-padding bg-gradient-dark relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-orange/5 blur-[130px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <SectionHeading 
@@ -1005,9 +1052,14 @@ const App = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative w-full"
           >
-            <div className="p-8 bg-[#161616] border border-dark-border rounded-[2rem] glow-orange">
+            {/* Spotlight Glow behind the card */}
+            <div className="absolute -inset-4 bg-brand-orange/10 blur-[80px] rounded-[3rem] opacity-50" />
+            
+            <div className="p-4 md:p-8 bg-[#131313] border border-white/10 rounded-[2rem] shadow-2xl relative z-10 w-full overflow-hidden border-t-white/20">
+              {/* Internal subtle shine */}
+              <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-2">
                   <div className="text-xs uppercase font-extrabold tracking-widest text-brand-orange">Imobiliária Premium</div>
@@ -1057,7 +1109,8 @@ const App = () => {
       <TestimonialsSection />
 
       {/* --- MANUTENÇÃO --- */}
-      <section id="manutencao" className="section-padding">
+      <section id="manutencao" className="section-padding bg-gradient-subtle relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto glass-panel p-12 rounded-[3rem] relative overflow-hidden">
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-red/5 blur-[100px]" />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -1110,9 +1163,9 @@ const App = () => {
             </div>
           </div>
           <div className="mt-12 flex justify-center">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base whitespace-nowrap">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base">
               Garantir minha Manutenção
-              <Shield className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+              <Shield className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
           </div>
         </div>
@@ -1125,17 +1178,17 @@ const App = () => {
       <AboutSection />
 
       {/* --- FORMULARIO / CONTATO --- */}
-      <section id="contato" className="section-padding bg-gradient-brand">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
+      <section id="contato" className="section-padding bg-gradient-brand overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="w-full">
               <SectionHeading 
                 badge="Contato Direto"
                 title="Comece sua transformação digital hoje."
                 subtitle="Preencha os dados e receba uma análise estratégica personalizada do seu projeto."
               />
               <div className="space-y-8">
-                <div className="flex gap-6 items-center">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left">
                   <div className="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-brand-orange shrink-0">
                     <Target className="w-5 h-5" />
                   </div>
@@ -1145,19 +1198,19 @@ const App = () => {
                   </div>
                 </div>
                 
-                <div className="p-6 glass-panel rounded-3xl border-white/5 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-orange to-brand-red p-1">
+                <div className="p-6 glass-panel rounded-3xl border-white/5 flex flex-col sm:flex-row items-center gap-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-orange to-brand-red p-1 shrink-0">
                     <div className="w-full h-full bg-dark-bg rounded-full flex items-center justify-center">
                       <Zap className="text-brand-orange w-6 h-6" />
                     </div>
                   </div>
-                  <div>
+                  <div className="text-center sm:text-left">
                     <div className="text-sm italic font-medium leading-tight">"A diferença entre um site comum e um funil Devolweb está na conversão."</div>
                     <div className="text-[9px] font-bold uppercase text-brand-orange mt-2 tracking-widest">— Marcelo, Creative Director</div>
                   </div>
                 </div>
                 
-                <div className="pt-8 border-t border-dark-border">
+                <div className="pt-8 border-t border-dark-border text-center sm:text-left">
                   <div className="text-[10px] font-bold uppercase text-white/30 mb-2">Formas de Pagamento</div>
                   <div className="text-xs font-bold leading-relaxed">40% Entrada + 30% Desenvolvimento + 30% Entrega</div>
                   <div className="text-[10px] text-brand-orange uppercase font-black mt-1">Consulte parcelamento no cartão</div>
@@ -1166,17 +1219,17 @@ const App = () => {
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass-panel p-10 rounded-[2.5rem] relative"
+              className="glass-panel p-4 sm:p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] relative mt-10 lg:mt-0 w-full"
             >
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center glow-orange">
+              <div className="absolute -top-3 -right-2 md:-top-4 md:-right-4 w-10 h-10 md:w-12 md:h-12 bg-brand-orange rounded-full flex items-center justify-center glow-orange hidden sm:flex">
                 <ArrowRight className="w-6 h-6 text-white" />
               </div>
               <form className="space-y-5" onSubmit={handleFormSubmit}>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-[10px] font-bold uppercase text-white/30 mb-2 block tracking-widest">Nome Completo</label>
                     <input 
@@ -1226,7 +1279,7 @@ const App = () => {
                     placeholder="Fale um pouco sobre o projeto..." 
                   />
                 </div>
-                <button type="submit" disabled={isSent} className="button-primary w-full py-5 text-base uppercase tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center disabled:opacity-80 disabled:cursor-not-allowed">
+                <button type="submit" disabled={isSent} className="button-primary w-full py-4 md:py-5 text-sm md:text-base uppercase tracking-normal sm:tracking-wider md:tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center disabled:opacity-80 disabled:cursor-not-allowed">
                   {isSent ? (
                     <span className="flex flex-col items-center justify-center gap-1">
                        <span className="flex items-center gap-2 font-black"><Check className="w-4 h-4" /> Dados Copiado!</span>
