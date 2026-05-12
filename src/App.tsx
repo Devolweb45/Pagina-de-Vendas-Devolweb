@@ -23,7 +23,9 @@ import {
   X,
   Lock,
   RefreshCw,
-  Search
+  Search,
+  Users,
+  Code
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -206,7 +208,7 @@ const TestimonialsSection = () => {
           ))}
         </div>
         <div className="mt-12 flex justify-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm border border-white/10 hover:bg-white/5 transition-all whitespace-nowrap">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base border border-white/10 hover:bg-white/5 transition-all whitespace-nowrap">
             Quero esses mesmos resultados
             <Star className="w-4 h-4 ml-2 text-brand-orange fill-current" />
           </a>
@@ -263,6 +265,114 @@ const FAQSection = () => {
             <WhatsappIcon className="text-brand-orange w-5 h-5 group-hover:scale-110 transition-transform" />
             <span className="text-xs font-bold text-brand-white/80 uppercase tracking-widest">Falar com Consultor</span>
           </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const GuaranteeSection = () => (
+  <section className="section-padding bg-gradient-brand border-y border-white/5 relative overflow-hidden">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none" />
+    <div className="max-w-7xl mx-auto relative z-10">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <SectionHeading 
+            badge="Risco Zero"
+            title="Sua satisfação ou seu projeto de volta."
+            subtitle="Temos tanta confiança em nossa metodologia que oferecemos uma garantia blindada para o seu investimento."
+          />
+          <div className="space-y-6">
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0 border border-brand-orange/20 md:mx-0">
+                <Check className="w-5 h-5 text-brand-orange" />
+              </div>
+              <div className="text-center md:text-left">
+                <h4 className="text-sm font-bold uppercase tracking-tight mb-1">Garantia de 30 Dias</h4>
+                <p className="text-xs text-brand-white/40 leading-relaxed">Se em até 30 dias após a entrega você não estiver satisfeito com a qualidade técnica do projeto, faremos os ajustes necessários sem custo adicional.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0 border border-brand-orange/20 md:mx-0">
+                <Shield className="w-5 h-5 text-brand-orange" />
+              </div>
+              <div className="text-center md:text-left">
+                <h4 className="text-sm font-bold uppercase tracking-tight mb-1">Suporte Pós-Entrega</h4>
+                <p className="text-xs text-brand-white/40 leading-relaxed">Você não fica sozinho. Oferecemos suporte prioritário para garantir que tudo funcione perfeitamente enquanto você foca em vender.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-brand-orange/20 blur-[100px] rounded-full animate-pulse" />
+            <div className="w-64 h-64 md:w-80 md:h-80 glass-panel rounded-full border-brand-orange/30 flex flex-col items-center justify-center text-center p-8 relative z-10 border-4">
+              <Shield className="w-20 h-20 text-brand-orange mb-4" />
+              <div className="text-4xl font-black text-brand-orange mb-1 italic">100%</div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 leading-tight">Garantia de<br/>Satisfação</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
+
+const HowItWorksSection = () => {
+  const steps = [
+    { title: 'Briefing', icon: <Users className="w-6 h-6" />, desc: 'Entendemos seus objetivos e público-alvo.' },
+    { title: 'Planejamento', icon: <Target className="w-6 h-6" />, desc: 'Estruturamos o funil e a experiência do usuário.' },
+    { title: 'Desenvolvimento', icon: <Code className="w-6 h-6" />, desc: 'Transformamos o plano em código de alta performance.' },
+    { title: 'Revisão', icon: <Search className="w-6 h-6" />, desc: 'Ajustamos cada detalhe para perfeição.' },
+    { title: 'Entrega', icon: <Check className="w-6 h-6" />, desc: 'Lançamos seu projeto pronto para vender.' },
+  ];
+
+  return (
+    <section className="section-padding bg-dark-bg/50">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeading 
+          badge="Metodologia"
+          title="Como funciona o nosso processo"
+          subtitle="Um caminho claro e estratégico do primeiro contato até o lançamento do seu projeto."
+          centered
+        />
+        <div className="grid md:grid-cols-5 gap-8 mt-16 relative">
+          {/* Linha conectora no desktop */}
+          <div className="hidden md:block absolute top-[44px] left-0 w-full h-[1px] bg-gradient-to-r from-brand-orange/0 via-brand-orange/20 to-brand-orange/0 -z-10" />
+          
+          {steps.map((step, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-20 h-20 rounded-2xl glass-panel flex items-center justify-center mb-6 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all transform group-hover:-translate-y-2 border border-white/5 group-hover:border-brand-orange glow-orange-hover">
+                {step.icon}
+                <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-dark-bg border border-white/10 flex items-center justify-center text-[10px] font-black group-hover:border-white transition-colors">
+                  0{idx + 1}
+                </div>
+              </div>
+              <h4 className="text-base font-black uppercase tracking-widest mb-3">{step.title}</h4>
+              <p className="text-[11px] text-brand-white/40 leading-relaxed font-medium">
+                {step.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -334,7 +444,7 @@ const PortfolioSection = () => {
   }, [isPaused]);
 
   return (
-    <section id="portfolio" className="py-16 md:py-24 overflow-hidden bg-gradient-dark border-b border-dark-border">
+    <section id="portfolio" className="py-24 md:py-32 overflow-hidden bg-gradient-dark border-b border-dark-border">
       <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12 text-center">
         <SectionHeading 
           badge="Portfólio de Elite"
@@ -393,7 +503,7 @@ const PortfolioSection = () => {
         </div>
       </div>
       <div className="mt-12 flex justify-center relative z-10 px-6">
-        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm">
+        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base">
           Quero um projeto de elite
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
@@ -403,7 +513,7 @@ const PortfolioSection = () => {
 };
 
 const AboutSection = () => (
-  <section id="sobre" className="py-16 md:py-24 bg-gradient-dark overflow-hidden relative px-6">
+  <section id="sobre" className="py-24 md:py-32 bg-gradient-dark overflow-hidden relative px-6">
     <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-brand-orange/5 blur-[100px] rounded-full -z-10" />
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
       <motion.div 
@@ -453,7 +563,7 @@ const AboutSection = () => (
             </div>
           </div>
           <div className="mt-10 flex justify-center lg:justify-start">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base">
               Trabalhar com Marcelo
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -509,7 +619,7 @@ const App = () => {
   return (
     <main className="min-h-screen bg-dark-bg selection:bg-brand-orange selection:text-white pb-20">
       {/* --- HERO: O PROBLEMA --- */}
-      <section className="pb-20 px-6 overflow-hidden relative bg-gradient-brand">
+      <section className="pb-32 px-6 overflow-hidden relative bg-gradient-brand">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/5 blur-[120px] -z-10" />
         
         {/* Meteorites */}
@@ -557,17 +667,17 @@ const App = () => {
               <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-32 md:h-32 w-auto ml-0 md:-ml-12" />
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 relative z-20">
-              Ter um site bonito não resolve o seu <span className="text-gradient-orange italic px-1">problema de vendas</span>.
+              Desenvolvimento de páginas modernas, rápidas e estratégicas para captar clientes e <span className="text-gradient-orange italic px-1">aumentar resultados</span>.
             </h1>
             <p className="text-lg text-brand-white/60 mb-8 max-w-lg mx-auto lg:mx-0">
               Em 2026, seu site deve ser o seu melhor vendedor. Nós transformamos códigos em funis de alta conversão para empresas que cansaram de ser ignoradas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm mx-0">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base mx-0">
                 Quero um site que venda
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-4 py-3 border border-dark-border rounded-xl hover:bg-white/5 transition-colors group w-full max-w-[280px]">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-6 py-3 border border-dark-border rounded-xl hover:bg-white/5 transition-colors group w-fit whitespace-nowrap">
                 <Search className="text-brand-orange w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-medium text-brand-white/40">Analise meu posicionamento</span>
               </a>
@@ -731,13 +841,16 @@ const App = () => {
             ) )}
           </div>
           <div className="mt-16 flex justify-center">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base">
               Descobrir meu Diagnóstico
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
       </section>
+
+      {/* --- COMO FUNCIONA --- */}
+      <HowItWorksSection />
 
       {/* --- PORTFOLIO --- */}
       <PortfolioSection />
@@ -782,7 +895,7 @@ const App = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Selecionar Plano</a>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-sm uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Selecionar Plano</a>
                 </motion.div>
               ))}
             </div>
@@ -818,7 +931,7 @@ const App = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Iniciar Consultoria</a>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`button-primary py-4 rounded-xl font-bold text-sm uppercase tracking-widest transition-all text-center ${plan.recommend ? '' : 'bg-dark-bg border border-white/5 hover:bg-white/10'}`}>Iniciar Consultoria</a>
                 </motion.div>
               ))}
             </div>
@@ -879,7 +992,7 @@ const App = () => {
                  <span className="text-[10px] font-bold uppercase text-white/30">Investimento Inicial</span>
                  <div className="text-2xl font-bold">R$ 7.000,00+</div>
               </div>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base">
                 Solicitar Sistema
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -995,7 +1108,7 @@ const App = () => {
             </div>
           </div>
           <div className="mt-12 flex justify-center">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-sm whitespace-nowrap">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="button-primary group text-base whitespace-nowrap">
               Garantir minha Manutenção
               <Shield className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
             </a>
@@ -1111,7 +1224,7 @@ const App = () => {
                     placeholder="Fale um pouco sobre o projeto..." 
                   />
                 </div>
-                <button type="submit" disabled={isSent} className="button-primary w-full py-5 text-sm uppercase tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center disabled:opacity-80 disabled:cursor-not-allowed">
+                <button type="submit" disabled={isSent} className="button-primary w-full py-5 text-base uppercase tracking-widest shadow-xl shadow-brand-orange/20 mx-auto block text-center disabled:opacity-80 disabled:cursor-not-allowed">
                   {isSent ? (
                     <span className="flex flex-col items-center justify-center gap-1">
                        <span className="flex items-center gap-2 font-black"><Check className="w-4 h-4" /> Dados Copiado!</span>
@@ -1127,6 +1240,9 @@ const App = () => {
           </div>
         </div>
       </section>
+
+      {/* --- GARANTIA --- */}
+      <GuaranteeSection />
 
       {/* --- FOOTER --- */}
       <footer className="py-12 border-t border-dark-border px-6">
