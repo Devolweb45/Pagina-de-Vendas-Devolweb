@@ -157,7 +157,7 @@ const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: s
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className={`mb-12 text-center ${centered ? '' : 'md:text-left'}`}
+    className={`mb-20 text-center ${centered ? '' : 'md:text-left'}`}
   >
     <Badge>{badge}</Badge>
     <h2 className="headline-xl mb-4">{title}</h2>
@@ -178,10 +178,10 @@ const TestimonialsSection = () => {
         <SectionHeading 
           badge="Prova Social"
           title="Quem já transformou o digital conosco."
-          subtitle="Empresas que saíram do amadorismo para uma presença digital de elite."
+          subtitle="Pessoas reais, resultados concretos. Descubra como elevamos a percepção de valor e o faturamento de nossos parceiros."
           centered
         />
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-12">
           {reviews.map((rev, i) => (
             <motion.div 
               key={i} 
@@ -236,7 +236,7 @@ const FAQSection = () => {
         <SectionHeading 
           badge="Dúvidas Comuns"
           title="Perguntas Frequentes"
-          subtitle="Tudo o que você precisa saber antes de iniciarmos o seu funil de vendas."
+          subtitle="Transparência total. Respondemos às dúvidas mais frequentes para você iniciar sua jornada conosco sem incertezas."
           centered
         />
         <div className="space-y-4">
@@ -285,7 +285,7 @@ const GuaranteeSection = () => (
           <SectionHeading 
             badge="Risco Zero"
             title="Sua satisfação ou seu projeto de volta."
-            subtitle="Temos tanta confiança em nossa metodologia que oferecemos uma garantia blindada para o seu investimento."
+            subtitle="Garantia blindada. Se não entregarmos a excelência técnica prometida, devolvemos seu investimento. Simples assim."
           />
           <div className="space-y-6">
             <div className="flex gap-4 items-start">
@@ -345,7 +345,7 @@ const HowItWorksSection = () => {
         <SectionHeading 
           badge="Metodologia"
           title="Como funciona o nosso processo"
-          subtitle="Um caminho claro e estratégico do primeiro contato até o lançamento do seu projeto."
+          subtitle="Metodologia ágil e sem atritos. Do primeiro diagnóstico até o faturamento, cada passo é planejado para sua escala."
           centered
         />
         <div className="grid md:grid-cols-5 gap-8 mt-16 relative">
@@ -449,7 +449,7 @@ const PortfolioSection = () => {
         <SectionHeading 
           badge="Portfólio de Elite"
           title="Projetos que entregam resultados"
-          subtitle="Veja alguns dos funis e sistemas que desenvolvemos recentemente para nossos parceiros."
+          subtitle="Portfólio de projetos validados que geraram autoridade e resultados reais em diversos nichos."
           centered
         />
       </div>
@@ -543,7 +543,7 @@ const AboutSection = () => (
         <SectionHeading 
           badge="Quem Sou Eu"
           title="Marcelo Brasil"
-          subtitle="Fundador e Arquiteto de Vendas na Devolweb."
+          subtitle="Arquiteto de Vendas focado em alta performance para quem não aceita ser ignorado."
         />
         <div className="space-y-6 text-brand-white/60 text-sm leading-relaxed">
           <p>
@@ -667,7 +667,7 @@ const App = () => {
               <img src="/imagens/devoweb_original-removebg-preview.png" alt="Devolweb Logo" className="h-32 md:h-32 w-auto ml-0 md:-ml-12" />
             </div>
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 relative z-20">
-              Desenvolvimento de páginas modernas, rápidas e estratégicas para captar clientes e <span className="text-gradient-orange italic px-1">aumentar resultados</span>.
+              Desenvolvimento de páginas modernas e estratégicas para <span className="text-gradient-orange italic px-2 inline-block">gerar resultados</span>.
             </h1>
             <p className="text-lg text-brand-white/60 mb-8 max-w-lg mx-auto lg:mx-0">
               Em 2026, seu site deve ser o seu melhor vendedor. Nós transformamos códigos em funis de alta conversão para empresas que cansaram de ser ignoradas.
@@ -717,77 +717,79 @@ const App = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="relative bg-[#1a1a1a] p-1 rounded-3xl border border-dark-border glow-orange">
-             <div className="bg-dark-bg rounded-[22px] overflow-hidden">
-                <div className="h-8 bg-[#1a1a1a] px-4 flex items-center gap-2 border-b border-dark-border">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-red/40" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-orange/40" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1.05 }} transition={{ delay: 0.2, duration: 0.8 }} className="relative bg-[#1a1a1a] p-1.5 rounded-[2.5rem] border border-brand-orange/20 glow-orange lg:ml-10">
+             <div className="bg-dark-bg rounded-[2.2rem] overflow-hidden shadow-2xl">
+                <div className="h-10 bg-[#1a1a1a] px-5 flex items-center gap-2 border-b border-white/5">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-brand-red/40" />
+                    <div className="w-3 h-3 rounded-full bg-brand-orange/40" />
+                    <div className="w-3 h-3 rounded-full bg-white/10" />
                   </div>
-                  <div className="text-[9px] font-bold text-white/30 tracking-widest uppercase">sales-funnel-optimized.dev</div>
+                  <div className="text-[10px] font-black text-white/20 tracking-[0.2em] uppercase ml-4">SALES-FUNNEL-OPTIMIZED.DEV</div>
                 </div>
-                <div className="p-8 aspect-video flex flex-col justify-center">
-                  <div className="flex gap-4 mb-4">
-                    <div className="w-3/4 h-3 bg-white/5 rounded-full" />
-                    <div className="w-1/4 h-3 bg-brand-orange/20 rounded-full" />
+                <div className="p-10 aspect-video flex flex-col justify-center bg-gradient-to-br from-dark-bg to-[#111]">
+                  <div className="flex gap-6 mb-6">
+                    <div className="w-3/4 h-4 bg-white/5 rounded-full" />
+                    <div className="w-1/4 h-4 bg-brand-orange/20 rounded-full" />
                   </div>
-                  <div className="w-1/2 h-3 bg-white/10 rounded-full mb-8" />
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="w-1/2 h-4 bg-white/10 rounded-full mb-12" />
+                  <div className="grid grid-cols-2 gap-6">
                     <motion.div 
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      className="h-20 glass-panel rounded-xl flex items-center justify-center"
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="h-24 glass-panel rounded-2xl flex items-center justify-center border-brand-orange/10"
                     >
-                      <BarChart className="w-8 h-8 text-brand-orange" />
+                      <BarChart className="w-10 h-10 text-brand-orange" />
                     </motion.div>
                     <motion.div 
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                      className="h-20 glass-panel rounded-xl flex items-center justify-center"
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                      className="h-24 glass-panel rounded-2xl flex items-center justify-center border-brand-red/10"
                     >
-                      <TrendingUp className="w-8 h-8 text-brand-red" />
+                      <TrendingUp className="w-10 h-10 text-brand-red" />
                     </motion.div>
                   </div>
                 </div>
              </div>
 
-             {/* Floating UI Elements */}
+             {/* Floating UI Elements - Enhanced */}
              <motion.div 
-                animate={{ y: [0, -12, 0] }} 
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -right-6 glass-panel p-4 rounded-2xl border-brand-orange/20 z-20"
+                animate={{ y: [0, -15, 0], x: [0, 5, 0] }} 
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-8 -right-8 glass-panel p-5 rounded-3xl border-brand-orange/30 z-30 shadow-2xl shadow-brand-orange/20"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-orange/20 rounded-full flex items-center justify-center">
-                    <MousePointer2 className="w-5 h-5 text-brand-orange" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-brand-orange/20 rounded-2xl flex items-center justify-center">
+                    <MousePointer2 className="w-6 h-6 text-brand-orange" />
                   </div>
                   <div>
-                    <div className="text-xs font-black">+240%</div>
-                    <div className="text-[9px] text-white/40 uppercase">Taxa de Cliques</div>
+                    <div className="text-sm font-black text-white">+240%</div>
+                    <div className="text-[10px] text-white/40 uppercase font-black tracking-widest">Taxa de Conversão</div>
                   </div>
                 </div>
              </motion.div>
 
              <motion.div 
-                animate={{ y: [0, 12, 0] }} 
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                className="absolute -top-10 -left-6 glass-panel p-3 px-4 rounded-xl border-brand-red/20 z-20"
+                animate={{ y: [0, 15, 0], x: [0, -5, 0] }} 
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -top-12 -left-10 glass-panel p-4 px-6 rounded-2xl border-brand-red/30 z-30 shadow-2xl"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-brand-red rounded-full animate-pulse" />
-                  <div className="text-[9px] font-bold text-white/80 uppercase tracking-tighter">98/100 SEO Score</div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 bg-brand-red rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
+                  <div className="text-[10px] font-black text-white uppercase tracking-[0.2em]">98/100 SEO SCORE</div>
                 </div>
              </motion.div>
 
              <motion.div 
-                animate={{ x: [0, 10, 0] }} 
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 -right-12 glass-panel p-3 px-4 rounded-xl border-white/10 z-20 hidden md:block"
+                animate={{ x: [0, 15, 0] }} 
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/2 -right-16 glass-panel p-4 px-6 rounded-2xl border-white/10 z-30 hidden xl:block shadow-2xl"
               >
-                <div className="flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-brand-orange" />
-                  <div className="text-[9px] font-bold text-white/80 uppercase">0.8s Load</div>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-brand-orange/10 rounded-lg">
+                    <Zap className="w-4 h-4 text-brand-orange" />
+                  </div>
+                  <div className="text-[10px] font-black text-white uppercase tracking-widest">0.8s Load Speed</div>
                 </div>
              </motion.div>
           </motion.div>
@@ -876,9 +878,9 @@ const App = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
-                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange/40 ring-1 ring-brand-orange/20' : ''}`}
+                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange ring-2 ring-brand-orange/30 scale-[1.03] z-10 bg-brand-orange/5' : ''}`}
                 >
-                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl shadow-brand-orange/20">Mais Procurado</div>}
+                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-orange to-brand-red text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-2xl shadow-brand-orange/40">Melhor Escolha</div>}
                   <div className="mb-8">
                     <h3 className="text-lg font-black uppercase tracking-tight mb-1">{plan.name}</h3>
                     <p className="text-[10px] text-white/30 uppercase font-bold mb-4">{plan.target}</p>
@@ -912,9 +914,9 @@ const App = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
-                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange/40 ring-1 ring-brand-orange/20' : ''}`}
+                  className={`p-8 rounded-3xl glass-panel relative flex flex-col group transition-all hover:translate-y-[-5px] ${plan.recommend ? 'border-brand-orange ring-2 ring-brand-orange/30 scale-[1.03] z-10 bg-brand-orange/5' : ''}`}
                 >
-                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl shadow-brand-orange/20">Recomendado</div>}
+                  {plan.recommend && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-orange to-brand-red text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-2xl shadow-brand-orange/40">Recomendado</div>}
                   <div className="mb-8">
                     <h3 className="text-lg font-black uppercase tracking-tight mb-1">{plan.name}</h3>
                     <p className="text-[10px] text-white/30 uppercase font-bold mb-4">{plan.target}</p>
