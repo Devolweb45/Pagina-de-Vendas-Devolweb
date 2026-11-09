@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Artefatos gerados (build-static.mjs)
+site-estatico/
+Devolweb.html
+deploy-devolweb.zip

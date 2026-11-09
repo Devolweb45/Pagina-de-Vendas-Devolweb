@@ -1,141 +1,345 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  
-  --color-brand-red: #ef4444;
-  --color-brand-orange: #f97316;
-  --color-brand-white: #ffffff;
-  --color-dark-bg: #0a0a0a;
-  --color-dark-card: #111111;
-  --color-dark-border: rgba(255, 255, 255, 0.08);
-}
-
 @layer base {
-  html, body {
-    @apply bg-dark-bg text-brand-white antialiased font-sans overflow-x-hidden;
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #030304;
+    color: #f4f4f5;
+    overflow-x: hidden;
+  }
+
+  h1, h2 {
+    font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
   }
 }
 
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Luxury visual textures & Grid patterns */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(249, 115, 22, 0.18) 1.2px, transparent 1.2px);
+}
+
+.bg-circuit-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    radial-gradient(circle at 0 0, rgba(245, 158, 11, 0.15) 2px, transparent 2px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Neon Glows and Box Shadows */
 .glow-orange {
-  box-shadow: 0 0 50px -15px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 0 50px -10px rgba(249, 115, 22, 0.35);
 }
 
+.glow-orange-intense {
+  box-shadow: 0 0 60px 0px rgba(249, 115, 22, 0.28), 0 0 100px -20px rgba(234, 88, 12, 0.4);
+}
+
+.glow-amber {
+  box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.3);
+}
+
+.neon-border-orange {
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 0 20px -3px rgba(249, 115, 22, 0.3), inset 0 0 15px -3px rgba(249, 115, 22, 0.15);
+}
+
+.neon-border-amber {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.3), inset 0 0 15px -3px rgba(245, 158, 11, 0.15);
+}
+
+.neon-border-emerald {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.3), inset 0 0 15px -3px rgba(16, 185, 129, 0.15);
+}
+
+/* Neon Divider Line */
+.neon-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(249, 115, 22, 0.8) 50%, transparent 100%);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+}
+
+.neon-divider-amber {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.8) 50%, transparent 100%);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+}
+
+/* Gradient Text Typography */
 .text-gradient-orange {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-red;
+  background: linear-gradient(135deg, #ffffff 15%, #fdba74 45%, #f97316 75%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.glass-panel {
-  @apply bg-[#161616] border border-dark-border backdrop-blur-xl;
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffffff 20%, #fef08a 45%, #f59e0b 75%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.section-padding {
-  @apply py-16 md:py-24 px-6 relative overflow-hidden;
+.text-gradient-fire {
+  background: linear-gradient(135deg, #fef08a 0%, #f97316 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.bg-gradient-dark {
-  background: radial-gradient(circle at 0% 0%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
-              radial-gradient(circle at 100% 100%, rgba(239, 68, 68, 0.06) 0%, transparent 40%),
-              radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.03) 0%, transparent 70%),
-              #050505;
+/* Custom keyframes & animations */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.1); }
 }
 
-.bg-gradient-brand {
-  background: radial-gradient(circle at 50% -10%, rgba(249, 115, 22, 0.12) 0%, rgba(5, 5, 5, 1) 100%),
-              #050505;
+.animate-pulse-slow {
+  animation: pulseSlow 7s ease-in-out infinite;
 }
 
-.bg-gradient-footer {
-  background: linear-gradient(to bottom, #050505, #0a0a0a);
+/* Halo pulsante do botão flutuante do WhatsApp.
+   O anel expande ATRÁS do botão — o botão nunca some. */
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%, 100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
-/* Reduzindo o tamanho das headlines conforme pedido */
-.headline-xl {
-  @apply text-3xl md:text-5xl font-extrabold tracking-tight leading-normal py-4 relative z-20;
-}
-
-.button-primary {
-  @apply bg-gradient-to-r from-brand-orange to-brand-red text-white font-bold py-6 px-10 rounded-[2.5rem] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 w-full max-w-fit relative overflow-hidden text-sm md:text-base whitespace-nowrap;
-}
-
-.button-primary::before {
-  content: '';
+.whatsapp-pulse-ring {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: all 0.7s;
+  inset: 0;
+  border-radius: 9999px;
+  background: #10b981;
+  opacity: 0.55;
+  animation: whatsappPulse 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.button-primary:hover::before {
-  left: 100%;
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-motion) .whatsapp-pulse-ring {
+    animation: none;
+    opacity: 0.35;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatSmooth 6s ease-in-out infinite;
+}
+
+@keyframes laserShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-laser {
+  animation: laserShimmer 3s ease-in-out infinite;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: marquee 90s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@keyframes meteor {
+/* Falling Neon Comets / Meteorites Effect with realistic tapered Comet Tail */
+@keyframes cometShower {
   0% {
-    transform: translate(0, 0) rotate(-45deg);
     opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.6);
   }
-  10% {
+  8% {
     opacity: 1;
   }
-  90% {
-    opacity: 1;
+  75% {
+    opacity: 0.95;
   }
   100% {
-    transform: translate(-1000px, 1000px) rotate(-45deg);
     opacity: 0;
+    transform: translate3d(-420px, 420px, 0) scale(1.1);
   }
 }
 
-.meteor {
+.meteorite-item {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 15px 3px rgba(249, 115, 22, 1), 0 0 30px 6px rgba(249, 115, 22, 0.5);
-  animation: meteor 3s linear infinite;
+  top: -120px;
+  height: 3px;
+  /* 45 degree diagonal flight angle (from top-right towards bottom-left). Tail stretches back to the top-right. */
+  transform-origin: left center;
+  transform: rotate(-135deg);
+  /* Long tapered comet tail glowing from fiery core to neon orange trail */
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #fef08a 5%,
+    #f59e0b 18%,
+    #ea580c 45%,
+    rgba(234, 88, 12, 0.4) 75%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 8px 1px #ffffff,
+    0 0 16px 2px #f59e0b,
+    0 0 30px 4px rgba(234, 88, 12, 0.8),
+    0 0 50px 8px rgba(249, 115, 22, 0.4);
+  border-radius: 9999px;
   pointer-events: none;
-  z-index: 50;
+  animation-name: cometShower;
+  animation-timing-function: cubic-bezier(0.15, 0, 0.2, 1);
+  animation-iteration-count: infinite;
 }
 
-.meteor::after {
+/* Comet Head (Brilliant glowing nucleus) */
+.meteorite-item::before {
   content: '';
   position: absolute;
+  left: -3px;
   top: 50%;
   transform: translateY(-50%);
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(90deg, #f97316, transparent);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 
+    0 0 8px 3px #ffffff,
+    0 0 16px 6px #fde047,
+    0 0 28px 10px #ea580c;
+}
+
+/* Secondary Ion Tail / Diffuse Vapor Aura */
+.meteorite-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70%;
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(249, 115, 22, 0.3) 40%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll reveal — progressive enhancement                             */
+/* Elements are visible by default. The hook only adds .reveal-pending  */
+/* when JS is running, so nothing can stay invisible without it.        */
+/* ------------------------------------------------------------------ */
+
+/* Movement presets */
+[data-reveal='up'] { --reveal-from: translate3d(0, 30px, 0); }
+[data-reveal='down'] { --reveal-from: translate3d(0, -24px, 0); }
+[data-reveal='left'] { --reveal-from: translate3d(-34px, 0, 0); }
+[data-reveal='right'] { --reveal-from: translate3d(34px, 0, 0); }
+[data-reveal='scale'] { --reveal-from: translate3d(0, 18px, 0) scale(0.94); }
+[data-reveal='fade'] { --reveal-from: translate3d(0, 0, 0); }
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: var(--reveal-from, translate3d(0, 30px, 0));
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal].reveal-pending {
+    opacity: 0;
+  }
+
+  /* `backwards` keeps the first keyframe applied during the stagger delay,
+     then releases the element so hover transforms keep working afterwards. */
+  [data-reveal].is-visible {
+    animation: reveal-in 760ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+  }
+
+  [data-reveal='scale'].is-visible {
+    animation-duration: 820ms;
+  }
+}
+
+/* Explicit preview opt-in: ?motion=on (or #motion) re-enables the effects
+   even when the system asks for reduced motion. */
+html.force-motion [data-reveal].reveal-pending {
+  opacity: 0;
+}
+
+html.force-motion [data-reveal].is-visible {
+  animation: reveal-in 760ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+html.force-motion [data-reveal='scale'].is-visible {
+  animation-duration: 820ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-motion) [data-reveal],
+  html:not(.force-motion) [data-reveal].reveal-pending {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }

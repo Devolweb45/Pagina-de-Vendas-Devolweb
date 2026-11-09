@@ -1,0 +1,21 @@
+COMO ABRIR O SITE
+==================
+
+OPÇÃO 1 (mais fácil)
+  Dê duplo clique em:  Devolweb.html
+  É um arquivo único com HTML, CSS, JavaScript e imagens embutidos.
+  Funciona offline (só as fontes do Google precisam de internet).
+
+OPÇÃO 2
+  Dê duplo clique em:  ABRIR_SITE.bat
+
+OPÇÃO 3 (versão em pasta)
+  Abra:  site-estatico\index.html
+  Arquivos separados: site-estatico\assets\app.css e app.js
+
+IMPORTANTE
+  NÃO abra o "index.html" da raiz do projeto.
+  Ele é o arquivo de entrada do Vite (código-fonte React) e aparece
+  em branco quando aberto diretamente, pois precisa do servidor de dev.
+
+O código-fonte original em React/TypeScript continua intacto na pasta src/.
